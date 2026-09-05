@@ -20,4 +20,31 @@ for each $x \in X$. (Here $I = [0, 1]$.) The map $F$ is called a \textbf{homotop
 If $f$ is homotopic to $f'$, we write $f \simeq f'$. If $f \simeq f'$ and $f'$ is a constant map, we say that $f$ is \textbf{nullhomotopic}.
 \end{definition}
 
+
+\begin{definition}[Path Homotopy]
+Two paths $f$ and $f'$ mapping the interval $I = [0, 1]$ into $X$ are said to be \textbf{path homotopic} if they have the same initial point $x_0$ and the same final point $x_1$, and if there is a continuous map $F: I \times I \to X$ such that:
+\[
+\begin{aligned}
+F(s, 0) &= f(s) \quad \text{and} \quad F(s, 1) = f'(s) \\
+F(0, t) &= x_0 \quad \text{and} \quad F(1, t) = x_1
+\end{aligned}
+\]
+for each $s \in I$ and each $t \in I$. We call $F$ a \textbf{path homotopy} between $f$ and $f'$. If $f$ is path homotopic to $f'$, we write $f \simeq_p f'$.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
