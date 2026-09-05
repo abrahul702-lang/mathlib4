@@ -32,7 +32,31 @@ F(0, t) &= x_0 \quad \text{and} \quad F(1, t) = x_1
 for each $s \in I$ and each $t \in I$. We call $F$ a \textbf{path homotopy} between $f$ and $f'$. If $f$ is path homotopic to $f'$, we write $f \simeq_p f'$.
 \end{definition}
 
+\begin{lemma}[Lemma 51.1]
+The relations $\simeq$ and $\simeq_p$ are equivalence relations. If $f$ is a path, we shall denote its path-homotopy equivalence class by $[f]$.
+\end{lemma}
 
+\begin{proof}
+Let us verify the properties of an equivalence relation.
+
+Given $f$, it is trivial that $f \simeq f$; the map $F(x, t) = f(x)$ is the required homotopy. If $f$ is a path, $F$ is a path homotopy.
+
+Given $f \simeq f'$, we show that $f' \simeq f$. Let $F$ be a homotopy between $f$ and $f'$. Then
+\[
+G(x, t) = F(x, 1 - t)
+\]
+is a homotopy between $f'$ and $f$. If $F$ is a path homotopy, so is $G$.
+
+Suppose that $f \simeq f'$ and $f' \simeq f''$. We show that $f \simeq f''$. Let $F$ be a homotopy between $f$ and $f'$, and let $F'$ be a homotopy between $f'$ and $f''$. Define $G : X \times I \to Y$ by the equation
+\[
+G(x, t) =
+\begin{cases}
+F(x, 2t) & \text{for } t \in \left[0, \frac{1}{2}\right], \\
+F'(x, 2t - 1) & \text{for } t \in \left[\frac{1}{2}, 1\right].
+\end{cases}
+\]
+The map $G$ is well defined, since if $t = \frac{1}{2}$, we have $F(x, 2t) = f'(x) = F'(x, 2t - 1)$. Because $G$ is continuous on the two closed subsets $X \times \left[0, \frac{1}{2}\right]$ and $X \times \left[\frac{1}{2}, 1\right]$ of $X \times I$, it is continuous on all of $X \times I$, by the pasting lemma. Thus $G$ is the required homotopy between $f$ and $f''$. The proof for $\simeq_p$ is entirely similar.
+\end{proof}
 
 
 
