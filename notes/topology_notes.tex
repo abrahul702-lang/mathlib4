@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+
+\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\title{Topological Foundations: Jordan Curve Theorem}
+\author{Formalization Notes}
+\date{\today}
+\maketitle
+
+\begin{definition}[Homotopy and Nullhomotopy]
+If $f$ and $f'$ are continuous maps of the space $X$ into the space $Y$, we say that $f$ is \textbf{homotopic} to $f'$ if there is a continuous map $F: X \times I \to Y$ such that
+\[
+F(x, 0) = f(x) \quad \text{and} \quad F(x, 1) = f'(x)
+\]
+for each $x \in X$. (Here $I = [0, 1]$.) The map $F$ is called a \textbf{homotopy} between $f$ and $f'$.
+
+If $f$ is homotopic to $f'$, we write $f \simeq f'$. If $f \simeq f'$ and $f'$ is a constant map, we say that $f$ is \textbf{nullhomotopic}.
+\end{definition}
+
+\end{document}
