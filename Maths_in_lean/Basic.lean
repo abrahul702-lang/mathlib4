@@ -37,10 +37,6 @@ following three tactics:
 * `exact`
 * `apply`
 
-You can read the descriptions of these tactics in Part 2 of the online course
-notes here https://b-mehta.github.io/formalising-mathematics-notes/
-In this course we'll be learning about 30 tactics in total; the goal of this
-first logic section is to get you up to speed with ten very basic ones.
 
 ## Worked examples
 
@@ -137,17 +133,26 @@ example : P → P := by
 /-- If we know `P`, and we also know `P → Q`, we can deduce `Q`.
 This is called "Modus Ponens" by logicians. -/
 example : P → (P → Q) → Q := by
-  sorry
+  intro h hP
+  apply hP
+  exact h
 
 /-- `→` is transitive. That is, if `P → Q` and `Q → R` are true, then
 so is `P → R`. -/
 example : (P → Q) → (Q → R) → P → R := by
-  sorry
+  intro hPQ hQR hP
+  apply hQR
+  apply hPQ
+  exact hP
 
 /-- If `h : P → Q → R` with goal `⊢ R` and you `apply h`, you'll get
 two goals! Note that tactics operate on only the first goal. -/
 example : (P → Q → R) → (P → Q) → P → R := by
-  sorry
+  intro hPQR hPQ hP
+  apply hPQR
+  exact hP
+  apply hPQ
+  exact hP
 
 /-
 Here are some harder puzzles. They won't teach you anything new about
@@ -159,21 +164,42 @@ in this section, where you'll learn some more tactics.
 variable (S T : Prop)
 
 example : (P → R) → (S → Q) → (R → T) → (Q → R) → S → T := by
-  sorry
-
+  intro hPR hSQ hRT hQR hS
+  apply hRT
+  apply hQR
+  apply hSQ
+  exact hS
 example : (P → Q) → ((P → Q) → P) → Q := by
-  sorry
+  intro hPQ hP
+  apply hPQ
+  apply hP
+  exact hPQ
 
 example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P := by
-  sorry
+  intro hPQR hQRP hRQP
+  apply hQRP
+  intro hR
+  apply hPQR
+  intro hPQ
+  exact hR
+
 
 example : ((Q → P) → P) → (Q → R) → (R → P) → P := by
-  sorry
+  intro hQPP hQR hRP
+  apply hQPP
+  intro hQP
+  apply hRP
+  apply hQR
+  exact hQP
 
 example : (((P → Q) → Q) → Q) → P → Q := by
-  sorry
+  intro hPQQ hP
+  apply hPQQ
+  intro hPQ
+  apply hPQ
+  exact hP
 
 example :
     (((P → Q → Q) → (P → Q) → Q) → R) →
       ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R := by
-  sorry
+      tauto
